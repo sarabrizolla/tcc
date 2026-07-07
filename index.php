@@ -1,55 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-br">
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<head>
 
-        <title> INICIO | Site de Vendas </title>
-    </head>
-    <body>
-        <!-- MENU SUPERIOR INICIA AQUI! -->
-        <nav class="navbar navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#"> Site de vendas</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+    <?php include 'includes_site/head.php'; ?>
+
+    <title>Vitrine Digital</title>
+
+</head>
+
+<body>
+
+<?php include 'includes_site/header.php'; ?>
+
+<div class="hero">
+
+    <div class="container text-center">
+
+        <h1>Encontre lojas da sua região</h1>
+
+        <p>
+            Produtos, serviços e contatos em um só lugar.
+        </p>
+
+        <div class="pesquisa">
+
+            <input type="text"
+                   placeholder="Pesquisar loja...">
+
+            <button>
+                <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.php"> Início </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="loja.php"> Lojas </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="contato.php"> Contato </a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categorias
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="jogos_acao.php">Ação</a></li>
-                    <li><a class="dropdown-item" href="#">Corridas</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Esportes</a></li>
-                  </ul>
-                </li>
-              </ul>
-             
-              <a href="login/">
-                <button type="button" class="btn btn-success"> PAINEL ADMINISTRATIVO </button>
-              </a>
-              
-            </div>
-          </div>
-        </nav>
-        <!-- E TERMINA AQUI! -->
 
-        <h1> ESSA É A PÁGINA DE INÍCIO </h1>
-    </body>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">
+        Lojas em destaque
+    </h2>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card-loja">
+
+                <img src="img/loja1.jpg">
+
+                <h4>Loja Exemplo</h4>
+
+                <p>
+                    Roupas e acessórios.
+                </p>
+
+                <a href="#" class="btn btn-primary">
+                    Ver Loja
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<?php include 'includes_site/footer.php'; ?>
+
+</body>
 </html>
