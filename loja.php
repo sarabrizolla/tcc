@@ -1,3 +1,17 @@
+<?php
+
+include 'conexao.php';
+
+$id = $_GET['id'];
+
+$sql = "SELECT * FROM lojas WHERE id = $id";
+
+$resultado = mysqli_query($conn, $sql);
+
+$loja = mysqli_fetch_assoc($resultado);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,7 +19,7 @@
 
     <?php include 'includes_site/head.php'; ?>
 
-    <title>Loja Exemplo</title>
+    <title><?php echo $loja['nome']; ?></title>
 
 </head>
 
@@ -17,36 +31,47 @@
 
     <div class="card shadow border-0 p-4 mb-5">
 
-        <div class="row">
+        <div class="row align-items-center">
 
             <div class="col-md-4 text-center">
 
                 <img
                     src="img/loja1.jpg"
-                    class="img-fluid rounded">
+                    class="img-fluid rounded"
+                    style="max-height:300px; object-fit:cover;">
 
             </div>
 
             <div class="col-md-8">
 
                 <h1 class="fw-bold">
-                    Loja Exemplo
+
+                    <?php echo $loja['nome']; ?>
+
                 </h1>
 
                 <p>
-                    Roupas e acessórios para todas as idades.
+
+                    Loja cadastrada na Vitrine Digital.
+
                 </p>
 
                 <p>
-                    📞 (55) 99999-9999
+
+                    📞 <?php echo $loja['telefone']; ?>
+
                 </p>
 
                 <p>
-                    📷 @lojaexemplo
+
+                    📷 @<?php echo $loja['instagram']; ?>
+
                 </p>
 
                 <p>
-                    📍 Cerro Grande - RS
+
+                    📍 <?php echo $loja['endereco']; ?>
+
                 </p>
 
             </div>
@@ -56,28 +81,51 @@
     </div>
 
     <h2 class="mb-4">
+
         Produtos
+
     </h2>
 
     <div class="row">
 
+        <?php
+
+        $sql = "SELECT * FROM produtos WHERE loja_id = $id";
+
+        $resultado = mysqli_query($conn, $sql);
+
+        while($produto = mysqli_fetch_assoc($resultado)) {
+
+        ?>
+
         <div class="col-md-4 mb-4">
 
-            <div class="card shadow border-0">
+            <div class="card shadow border-0 h-100">
 
                 <img
-                    src="img/produto1.jpg"
-                    class="card-img-top">
+                    src="img/<?php echo $produto['imagem']; ?>"
+                    class="card-img-top"
+                    style="height:250px; object-fit:cover;">
 
                 <div class="card-body">
 
                     <h5>
-                        Camiseta Básica
+
+                        <?php echo $produto['nome']; ?>
+
                     </h5>
 
                     <p>
-                        R$ 49,90
+
+                        <?php echo $produto['descricao']; ?>
+
                     </p>
+
+                    <h4 class="text-success fw-bold">
+
+                        R$ <?php echo number_format($produto['preco'],2,",","."); ?>
+
+                    </h4>
 
                 </div>
 
@@ -85,29 +133,7 @@
 
         </div>
 
-        <div class="col-md-4 mb-4">
-
-            <div class="card shadow border-0">
-
-                <img
-                    src="img/produto2.jpg"
-                    class="card-img-top">
-
-                <div class="card-body">
-
-                    <h5>
-                        Calça Jeans
-                    </h5>
-
-                    <p>
-                        R$ 129,90
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
+        <?php } ?>
 
     </div>
 
@@ -116,4 +142,5 @@
 <?php include 'includes_site/footer.php'; ?>
 
 </body>
+
 </html>

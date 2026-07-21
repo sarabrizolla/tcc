@@ -76,9 +76,7 @@ include 'conexao.php';
 <section class="container py-5">
 
     <h2 class="text-center fw-bold mb-5">
-
         Explore por categoria
-
     </h2>
 
     <div class="row g-4">
@@ -136,20 +134,25 @@ include 'conexao.php';
     <div class="d-flex justify-content-between align-items-center mb-4">
 
         <h2 class="fw-bold">
-
             Lojas em destaque
-
         </h2>
 
         <a href="#" class="btn btn-outline-dark">
-
             Ver todas
-
         </a>
 
     </div>
 
     <div class="row">
+
+        <?php
+
+        $sql = "SELECT * FROM lojas";
+        $resultado = mysqli_query($conn, $sql);
+
+        while($loja = mysqli_fetch_assoc($resultado)) {
+
+        ?>
 
         <div class="col-lg-4 mb-4">
 
@@ -163,24 +166,24 @@ include 'conexao.php';
 
                     <span class="badge bg-primary mb-2">
 
-                        Moda
+                        <?php echo $loja['categoria']; ?>
 
                     </span>
 
                     <h4>
 
-                        Loja Exemplo
+                        <?php echo $loja['nome']; ?>
 
                     </h4>
 
                     <p>
 
-                        Roupas e acessórios para todas as idades.
+                        Loja cadastrada na Vitrine Digital.
 
                     </p>
 
                     <a
-                        href="loja.php"
+                        href="loja.php?id=<?php echo $loja['id']; ?>"
                         class="btn btn-gradient w-100">
 
                         Ver Loja
@@ -193,89 +196,7 @@ include 'conexao.php';
 
         </div>
 
-        <div class="col-lg-4 mb-4">
-
-            <div class="card loja-card border-0 shadow">
-
-                <img
-                    src="img/loja2.jpg"
-                    class="card-img-top">
-
-                <div class="card-body">
-
-                    <span class="badge bg-success mb-2">
-
-                        Tecnologia
-
-                    </span>
-
-                    <h4>
-
-                        Tech House
-
-                    </h4>
-
-                    <p>
-
-                        Celulares, notebooks e acessórios.
-
-                    </p>
-
-                    <a
-                        href="loja.php"
-                        class="btn btn-gradient w-100">
-
-                        Ver Loja
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="col-lg-4 mb-4">
-
-            <div class="card loja-card border-0 shadow">
-
-                <img
-                    src="img/loja3.jpg"
-                    class="card-img-top">
-
-                <div class="card-body">
-
-                    <span class="badge bg-danger mb-2">
-
-                        Alimentação
-
-                    </span>
-
-                    <h4>
-
-                        Sabor Caseiro
-
-                    </h4>
-
-                    <p>
-
-                        Doces, salgados e muito mais.
-
-                    </p>
-
-                    <a
-                        href="loja.php"
-                        class="btn btn-gradient w-100">
-
-                        Ver Loja
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
+        <?php } ?>
 
     </div>
 
