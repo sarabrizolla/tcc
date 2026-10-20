@@ -5,9 +5,9 @@
 ========================= */
 
 $servidor = "localhost";
-$usuario = "root";
-$senha = "";
-$banco = "vitrine_digital";
+$usuario = "u948351601_vitrinedigital";
+$senha = "CEEDOu948351601";
+$banco = "u948351601_vitrinedigital";
 
 
 /* =========================
