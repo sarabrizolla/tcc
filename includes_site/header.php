@@ -48,7 +48,7 @@
 
                     <a
                         class="nav-link px-3"
-                        href="../index.php">
+                        href="/tcc/index.php">
 
                         <i class="fa-solid fa-house me-1"></i>
 
@@ -65,7 +65,7 @@
 
                     <a
                         class="nav-link px-3"
-                        href="../login.php">
+                        href="/tcc/login.php">
 
                         <i class="fa-solid fa-right-to-bracket me-1"></i>
 
@@ -82,7 +82,7 @@
 
                     <a
                         class="nav-link px-3"
-                        href="../cadastro.php">
+                        href="/tcc/cadastro.php">
 
                         <i class="fa-solid fa-store me-1"></i>
 
